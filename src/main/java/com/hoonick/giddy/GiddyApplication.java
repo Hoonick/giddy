@@ -11,6 +11,7 @@ public class GiddyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GiddyApplication.class, args);
+		System.out.println();
 	}
 
 }
