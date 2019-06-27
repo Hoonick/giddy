@@ -18,4 +18,11 @@ public class HelloController
 		map.put("message", "hello world");
 		return map;
 	}
+	
+	@GetMapping("sayhello")
+	public Map<String, Object> hello2(){
+		Map<String, Object> map = new HashMap<>();
+		map.put("message", "hello world");
+		return map;
+	}
 }
