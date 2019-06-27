@@ -2,10 +2,10 @@ spring:
   application:
     name: giddy  ## 仅仅是项目名,与请求路径中的名称无关 localhost:8090/giddy/helloController/sayhello
   datasource:
-    username: TP
-    password: SFIS#7890
+    username: 
+    password: 
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@(DESCRIPTION =    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.28.149.65)(PORT = 1521))    (CONNECT_DATA =      (SERVER = DEDICATED)      (SERVICE_NAME = SHSFISBASE)    ))
+    url:
     
     
 server:
