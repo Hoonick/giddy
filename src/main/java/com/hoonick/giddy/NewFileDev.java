@@ -1,9 +1,9 @@
 package com.hoonick.giddy;
 
-public class TestGit {
+public class NewFileDev {
 
 	public static void main(String[] args) {
-		System.out.println("hello dev");
+
 	}
 
 }
