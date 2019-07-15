@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="head.html">
+</head>
+<body class="login-bg">
+<div class="login layui-anim layui-anim-up">
+    <div class="message">工单管理系统</div>
+    <div id="darkbannerwrap"></div>
+
+    <form class="layui-form" id="loginForm" th:action="@{/login}" method="post">
+        <span th:if="${not #strings.isEmpty(error)}">
+        <font color="red"><span th:text="${error}"></span></font>
+        </span>
+        <input name="username" placeholder="用户名" lay-verify="required" type="text" class="layui-input" id="username"><font color="white" id="usernameTip"></font>
+        <hr class="hr15">
+        <input name="password" placeholder="密码"  lay-verify="required" type="password" class="layui-input" id="password"><font color="white" id="passwordTip"></font>
+        <hr class="hr15">
+        <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit" onclick="login()">
+        <hr class="hr20" >
+    </form>
+</div>
+
+<script>
+    $(function(){
+        /* 	layui.use('form', function(){
+                var form = layui.form;
+                //监听提交
+                form.on('submit(login)', function(data){
+                  console.log(11);
+                  var index = layer.load(1);//开启进度条
+                  $.ajax({
+                     url : ctxPath + '/login',
+                     data :{
+                         username:$("#username").val(),
+                         password:$("#password").val()
+                     },
+                     type : 'POST',//默认以get提交，以get提交如果是中文后台会出现乱码
+                     dataType : 'json',
+                     success : function(obj) {
+                         layer.close(index);//关闭
+                     }
+                 });
+               });
+             });  */
+        login = function(){
+            if($('#username').val() == ''){
+                $('#usernameTip').html('请输入登录名');
+                return;
+            }
+            if($('#password').val() == ''){
+                $('#passwordTip').html('请输入密码');
+                return;
+            }
+            $('#loginForm').submit();
+        };
+
+        $(document).keydown(function(e){
+            if(e.keyCode==13){
+                login();
+            }
+        });
+
+    });
+
+    /* $(document).ready(function(e) {
+       debugger;
+       var counter = 0;
+       if (window.history && window.history.pushState) {
+           $(window).on('popstate', function () {
+               window.history.pushState('forward', null, '#');
+               window.history.forward(1);
+               debugger;
+               //window.location.href = window.location.reload();
+               window.location.href = ctxPath + '/logout';
+               alert(11)
+           });
+       }
+       window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+       window.history.forward(1);
+   });  */
+</script>
+</body>
+</html>

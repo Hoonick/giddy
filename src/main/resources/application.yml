@@ -1,11 +1,17 @@
 spring:
   application:
     name: giddy  ## 仅仅是项目名,与请求路径中的名称无关 localhost:8090/giddy/helloController/sayhello
-  datasource:
-    username: 
-    password: 
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-    url:
+#  mvc:
+#    static-path-pattern: /static/**
+      
+#  datasource:
+#    username: 
+#    password: 
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url:
+  thymeleaf:
+    cache: false #关闭缓存
+#    prefix: classpath:/views/ #调整页面路径
     
     
 server:
@@ -13,6 +19,3 @@ server:
   servlet:
     context-path: /giddy  #请求路径中的名称,localhost:8090/giddy/helloController/sayhello 
     
-spring:
-  thymeleaf:
-    cache: false #关闭缓存

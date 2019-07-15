@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link rel="icon" th:href="@{images/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" th:href="@{http://www.jq22.com/jquery/font-awesome.4.6.0.css}">
+</head>
+<head th:replace="head.html">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+    <link rel="icon" th:href="@{images/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" th:href="@{http://www.jq22.com/jquery/font-awesome.4.6.0.css}">
+</head>
+
+<body>
+<div class="layui-layout layui-layout-admin" style="border-bottom: solid 5px #1aa094;">
+    <div class="layui-header header header-demo">
+        <div class="layui-main">
+            <div class="admin-login-box">
+                <a class="logo" style="left: 0;" href="#"> <span
+                        style="font-size: 18px;">工单管理平台</span>
+                </a>
+                <div class="admin-side-toggle">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <div class="admin-side-full">
+                    <i class="fa fa-life-bouy" aria-hidden="true"></i>
+                </div>
+            </div>
+            <ul class="layui-nav admin-header-item">
+
+                <li class="layui-nav-item"><a href="javascript:;"
+                                              class="admin-header-user"> <img src="images/0.jpg" /> <span id="main_user"><shiro:principal property="userName"></shiro:principal></span>
+                </a>
+                    <dl class="layui-nav-child">
+                        <dd id="changePwd">
+                            <a href="javascript:;" th:onclick="'javascript:resetPwd('+${userId}+');'"><i class="fa fa-gear"
+                                                                                                            aria-hidden="true"></i> 修改密码</a>
+                        </dd>
+                        <dd id="sysout">
+                            <a href="#" onclick="logout();"><i class="fa fa-sign-out"
+                                                               aria-hidden="true"></i> 注销</a>
+                        </dd>
+                    </dl></li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-side layui-bg-black" id="admin-side">
+        <div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side"></div>
+    </div>
+    <div class="layui-body" style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
+        <div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab" lay-allowClose="true">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="fa fa-dashboard" aria-hidden="true"></i> <cite>首页</cite></li>
+            </ul>
+            <div class="layui-tab-content" style="width:100%;height:100%;padding: 5px 0 0 0;">
+                <div class="layui-tab-item layui-show">
+                    <iframe th:src="@{/welcome}"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-footer footer footer-demo" id="admin-footer">
+        <div class="layui-main">
+            <p>
+                天翼视讯传媒有限公司
+            </p>
+        </div>
+    </div>
+    <div class="site-tree-mobile layui-hide">
+        <i class="layui-icon">&#xe602;</i>
+    </div>
+    <div class="site-mobile-shade"></div>
+</div>
+<script type="text/javascript" th:inline="javascript">
+    var navs;
+    $.ajax({
+        url :/*[[@{/menu/load}]]*/,
+        dataType : 'json',
+        async: false,
+        success : function(data) {
+            navs=data;
+        }
+    });
+
+    function logout(){
+        window.location.href = ctxPath + '/logout';
+    }
+
+</script>
+<script type="text/javascript" th:src="@{js/index.js}"></script>
+<script type="text/javascript" th:replace="system/user_reset.html"></script>
+</body>
+</html>
