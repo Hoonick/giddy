@@ -19,3 +19,7 @@ server:
   servlet:
     context-path: /giddy  #请求路径中的名称,localhost:8090/giddy/helloController/sayhello 
     
+logging: 
+  level: 
+    web: DEBUG
+    
