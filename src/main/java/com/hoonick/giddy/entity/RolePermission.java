@@ -2,10 +2,6 @@ package com.hoonick.giddy.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -21,19 +17,15 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@Entity
-public class User implements Serializable {
+public class RolePermission implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue
-    private Long id;
+    private Integer id;
 
-    private String password;
+    private Integer roleId;
 
-    private String username;
+    private Integer permissionId;
 
-    private String account;
 
 }
