@@ -6,7 +6,7 @@ spring:
       
   datasource: 
     username: root
-    password: 
+    password: 123456
 #    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/giddy?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&allowPublicKeyRetrieval=true
   jpa : # 在控制台打印SQL
@@ -26,13 +26,13 @@ server:
   servlet:
     context-path: /giddy  #请求路径中的名称,localhost:8090/giddy/helloController/sayhello 
 
-shiro:
-  loginUrl: /login         # 用户未登录时跳转的请求路径
-  unauthorizedUrl: /unauthorized  # 用户没有访问权限时跳转的请求路径
-  userNativeSessionManager: true
-  sessionManager:
-    cookie:
-      name: BIUSID
+#shiro:
+#  loginUrl: /login         # 用户未登录时跳转的请求路径
+#  unauthorizedUrl: /unauthorized  # 用户没有访问权限时跳转的请求路径
+#  userNativeSessionManager: true
+#  sessionManager:
+#    cookie:
+#      name: BIUSID
           
 logging: 
   level: 
