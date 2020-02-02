@@ -6,7 +6,7 @@ spring:
       
   datasource: 
     username: root
-    password: 123456
+    password:
 #    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/giddy?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&allowPublicKeyRetrieval=true
   jpa : # 在控制台打印SQL
@@ -18,7 +18,7 @@ spring:
       indent_output: true
   thymeleaf:
     cache: false #关闭缓存
-#    prefix: classpath:/views/ #调整页面路径
+    prefix: classpath:/ #调整页面路径
     
     
 server:

@@ -9,6 +9,7 @@ public class GiddyApplication {
 	public static void main(String[] args) {
 		//xixi
 		SpringApplication.run(GiddyApplication.class, args);
+
 	}
 
 }
